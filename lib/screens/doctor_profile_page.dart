@@ -43,7 +43,7 @@ class DoctorProfilePage extends StatelessWidget {
             DoctorSummary(),
             SizedBox(height: 8),
             Container(
-              height: 1475,
+              height: 1775,
               child: DefaultTabController(
                 length: 2,
                 child: Scaffold(
@@ -66,7 +66,7 @@ class DoctorProfilePage extends StatelessWidget {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      right: size.width * 0.09,
+                                      right: size.width * 0.05 - 12,
                                     ),
                                     child: Text(
                                       'Online Consultancy',
