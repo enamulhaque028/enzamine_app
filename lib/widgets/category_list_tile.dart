@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CategoryListTile extends StatelessWidget {
-  final String imageUrl;
+  final String name;
+  final String uuid;
+  final String slug;
 
-  const CategoryListTile({Key? key, required this.imageUrl}) : super(key: key);
+  const CategoryListTile({
+    Key? key,
+    required this.name,
+    required this.uuid,
+    required this.slug,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +26,27 @@ class CategoryListTile extends StatelessWidget {
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
+              child: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xFF1ACBFC), Color(0xFF1B90F5)],
+                  ),
+                ),
                 height: double.maxFinite,
                 width: double.maxFinite,
+                child: Center(
+                  child: Text(
+                    name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
+              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -33,64 +55,38 @@ class CategoryListTile extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Expanded(
+                Expanded(
                   child: Text(
-                    'IMG_20220202_22450669',
+                    slug,
+                    style: const TextStyle(
+                      color: Color.fromRGBO(79, 44, 255, 1),
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const SizedBox(width: 9),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 7),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 7,
+                  ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color.fromRGBO(228, 229, 229, 1)),
+                    border: Border.all(
+                      color: const Color.fromRGBO(228, 229, 229, 1),
+                    ),
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  child: const Text(
-                    'JPG',
-                    style: TextStyle(color: Color.fromRGBO(79, 44, 255, 1)),
+                  child: Text(
+                    uuid,
+                    style: const TextStyle(
+                      color: Color.fromRGBO(79, 44, 255, 1),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: FittedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Icon(
-                        Icons.folder,
-                        color: Color.fromRGBO(79, 44, 255, 1),
-                        size: 16,
-                      ),
-                      SizedBox(width: 7),
-                      Text('3 MB'),
-                    ],
-                  ),
-                  const SizedBox(width: 16),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Icon(
-                        Icons.calendar_view_month_rounded,
-                        color: Color.fromRGBO(79, 44, 255, 1),
-                        size: 16,
-                      ),
-                      SizedBox(width: 7),
-                      Text('12/10/2021'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 13),
+          const SizedBox(height: 8),
         ],
       ),
     );
