@@ -2,6 +2,7 @@ import 'package:aits_task/config/presentation/app_color.dart';
 import 'package:aits_task/config/utils/auth_status.dart';
 import 'package:aits_task/provider/login_provider.dart';
 import 'package:aits_task/screens/home/home_page.dart';
+import 'package:aits_task/screens/registration/registration_page.dart';
 import 'package:aits_task/widgets/app_title.dart';
 import 'package:aits_task/widgets/custom_button.dart';
 import 'package:aits_task/widgets/custom_textfield.dart';
@@ -76,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 12),
                         GestureDetector(
                           onTap: () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationPage()));
                           },
                           child: RichText(
                             text: TextSpan(
